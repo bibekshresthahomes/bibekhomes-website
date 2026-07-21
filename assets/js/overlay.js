@@ -28,13 +28,17 @@
       return;
     }
 
-    frame.src = url;
-
-    // Browsers do not expose reliable cross-origin iframe blocking details.
-    // This timer reveals a fallback message without removing the iframe.
-    window.setTimeout(() => {
-      const helper = document.querySelector("[data-frame-helper]");
-      if (helper) helper.hidden = false;
-    }, 3500);
+    // Keep Bibek's personal site visually consistent. KW tools open on their
+    // official secure pages instead of being squeezed into a cross-site frame.
+    frame.remove();
+    if (notice) {
+      const title = notice.querySelector("h2");
+      const copy = notice.querySelector("p");
+      if (title) title.textContent = "Continue with Bibek’s official KW tool";
+      if (copy) copy.textContent = "You’ll open Bibek’s secure Keller Williams resource in a new tab, then return here whenever you need personal guidance.";
+      notice.classList.add("show");
+    }
+    const helper = document.querySelector("[data-frame-helper]");
+    if (helper) helper.hidden = true;
   });
 })();
