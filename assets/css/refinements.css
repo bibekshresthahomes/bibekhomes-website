@@ -51,11 +51,24 @@
 .kw-advisor-card h3 { margin-bottom: 24px; font-size: 34px; line-height: 1.06; }
 .kw-advisor-card a { width: fit-content; padding-bottom: 7px; border-bottom: 1px solid rgba(255,255,255,.5); font-size: 10px; font-weight: 700; }
 
+/* Full-size KW tool overlay */
+.kw-immersive-page .tool-intro { padding: 44px 0 30px; }
+.kw-immersive-page .tool-intro h1 { font-size: clamp(38px, 4vw, 58px); }
+.kw-immersive-page .tool-intro p { margin-bottom: 0; }
+.kw-immersive-shell { padding: 0; background: #fff; }
+.kw-immersive-shell > .container { width: 100%; max-width: none; }
+.kw-immersive-shell .frame-card { width: 100%; max-width: none; margin: 0; border: 0; border-radius: 0; box-shadow: none; }
+.kw-immersive-shell .frame-toolbar { position: sticky; top: 80px; z-index: 20; padding-left: max(24px, calc((100vw - 1240px) / 2)); padding-right: max(24px, calc((100vw - 1240px) / 2)); background: rgba(251,250,247,.96); backdrop-filter: blur(14px); }
+.kw-immersive-shell .kw-frame { display: block; width: 100%; height: calc(100vh - 138px); min-height: 780px; border: 0; }
+.kw-immersive-shell .privacy-note { max-width: none; margin: 0; padding: 12px 4%; background: var(--cream); text-align: center; }
+
 @media (max-width: 980px) {
   .hero-agent-card { right: 20px; bottom: 25px; }
   .hero-scroll { display: none; }
   .kw-launch { grid-template-columns: 1fr; }
   .kw-advisor-card { min-height: 360px; }
+  .kw-immersive-shell .frame-toolbar { top: 72px; }
+  .kw-immersive-shell .kw-frame { height: calc(100svh - 130px); min-height: 680px; }
 }
 
 @media (max-width: 620px) {
@@ -75,4 +88,7 @@
   .kw-launch-actions .btn { width: 100%; }
   .kw-back { align-self: center; }
   .kw-advisor-card { min-height: 340px; padding: 35px 25px; }
+  .kw-immersive-page .tool-intro { padding: 35px 0 24px; }
+  .kw-immersive-shell .frame-toolbar { position: static; }
+  .kw-immersive-shell .kw-frame { height: calc(100svh - 120px); min-height: 620px; }
 }
