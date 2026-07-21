@@ -74,7 +74,7 @@ h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
   min-height: 610px; position: relative;
   background:
     linear-gradient(90deg, rgba(0,0,0,.02), rgba(0,0,0,.12)),
-    url("https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1400&q=85") center 18%/cover;
+    url("../images/bibek-shrestha.jpg") center 24%/cover;
 }
 .hero-badge {
   position: absolute; right: 28px; bottom: 28px;
