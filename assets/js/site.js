@@ -1,6 +1,10 @@
 
 (function () {
   const config = window.BIBEK_SITE_CONFIG;
+  const siteScriptUrl = document.currentScript && document.currentScript.src;
+  const kwLogoUrl = siteScriptUrl
+    ? new URL("../images/kw-wc-east-bay-logo.png", siteScriptUrl).href
+    : "assets/images/kw-wc-east-bay-logo.png";
 
   function applyAgentDetails() {
     document.querySelectorAll("[data-agent-name]").forEach(el => el.textContent = config.agent.name);
@@ -27,9 +31,46 @@
     });
   }
 
+  function addBrokerageBranding() {
+    const navbar = document.querySelector(".navbar");
+    const brand = navbar && navbar.querySelector(".brand");
+    const nav = navbar && navbar.querySelector("[data-main-nav]");
+
+    if (navbar && brand && !navbar.querySelector(".header-kw-mark")) {
+      const headerMark = document.createElement("a");
+      headerMark.className = "header-kw-mark";
+      headerMark.href = config.kw.home;
+      headerMark.target = "_blank";
+      headerMark.rel = "noopener noreferrer";
+      headerMark.setAttribute("aria-label", "Keller Williams Walnut Creek East Bay");
+      headerMark.innerHTML = `<img src="${kwLogoUrl}" alt="Keller Williams Walnut Creek East Bay">`;
+      brand.insertAdjacentElement("afterend", headerMark);
+    }
+
+    if (nav && !nav.querySelector(".mobile-kw-mark")) {
+      const mobileMark = document.createElement("a");
+      mobileMark.className = "mobile-kw-mark";
+      mobileMark.href = config.kw.home;
+      mobileMark.target = "_blank";
+      mobileMark.rel = "noopener noreferrer";
+      mobileMark.innerHTML = `<span>Brokered by</span><img src="${kwLogoUrl}" alt="Keller Williams Walnut Creek East Bay">`;
+      nav.appendChild(mobileMark);
+    }
+
+    const footer = document.querySelector(".site-footer");
+    const legal = footer && footer.querySelector(".legal");
+    if (footer && legal && !footer.querySelector(".footer-kw-mark")) {
+      const footerMark = document.createElement("div");
+      footerMark.className = "footer-kw-mark container";
+      footerMark.innerHTML = `<span>Brokered by</span><a href="${config.kw.home}" target="_blank" rel="noopener noreferrer"><img src="${kwLogoUrl}" alt="Keller Williams Walnut Creek East Bay"></a>`;
+      legal.insertAdjacentElement("beforebegin", footerMark);
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     applyAgentDetails();
     setYear();
     mobileNavigation();
+    addBrokerageBranding();
   });
 })();
