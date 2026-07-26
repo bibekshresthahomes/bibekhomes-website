@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Shrestha;Bibek;;;
+FN:Bibek Shrestha
+ORG:Keller Williams Realty East Bay
+TITLE:Real Estate Advisor
+TEL;TYPE=CELL,VOICE:+18067873675
+EMAIL;TYPE=INTERNET,PREF:contact@bibekhomes.com
+EMAIL;TYPE=INTERNET:bshrestha@kw.com
+URL:https://bibekhomes.com/
+ADR;TYPE=WORK:;;;;East Bay;CA;;United States
+NOTE:Serving the East Bay and beyond. California DRE #02442983.
+END:VCARD
