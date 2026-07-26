@@ -22,9 +22,6 @@
 .coastal-skip { position: fixed; left: 8px; top: 8px; z-index: 9999; padding: 12px 18px; background: #fff; color: #000; transform: translateY(-160%); }
 .coastal-skip:focus { transform: translateY(0); }
 
-.coastal-topbar { min-height: 42px; display: flex; align-items: center; background: var(--coastal-blue); color: #fff; font-size: .82rem; }
-.coastal-topbar .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.coastal-topbar a { text-decoration: underline; text-underline-offset: 4px; }
 .coastal-header { background: rgba(255,255,255,.97); }
 .coastal-header .navbar { min-height: 80px; }
 .coastal-header .main-nav { gap: 31px; font-size: 12px; }
@@ -158,8 +155,6 @@
 }
 
 @media (max-width: 980px) {
-  .coastal-topbar span { display: none; }
-  .coastal-topbar .container { justify-content: center; }
   .coastal-header .navbar { min-height: 72px; }
   .coastal-header .main-nav { top: 72px; font-size: 1.05rem; }
   .coastal-header .main-nav a { padding: 16px; }
