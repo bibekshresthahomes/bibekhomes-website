@@ -70,7 +70,7 @@ function e(string $value): string { return htmlspecialchars($value, ENT_QUOTES, 
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/styles.css?v=premium-2">
-<link rel="stylesheet" href="../assets/css/refinements.css?v=refine-6">
+<link rel="stylesheet" href="../assets/css/refinements.css?v=refine-7">
 <link rel="stylesheet" href="../assets/css/contact.css?v=contact-2">
 </head>
 <body>
