@@ -86,19 +86,6 @@
       if (event.target === dialog) close();
     });
 
-    let hasShown = false;
-    try {
-      hasShown = sessionStorage.getItem("bibek-business-card-shown") === "1";
-    } catch (_) {}
-
-    if (!hasShown) {
-      window.setTimeout(() => {
-        open();
-        try {
-          sessionStorage.setItem("bibek-business-card-shown", "1");
-        } catch (_) {}
-      }, 6500);
-    }
   }
 
   document.addEventListener("DOMContentLoaded", () => {

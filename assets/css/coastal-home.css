@@ -122,25 +122,30 @@
 
 .business-card-launcher { position: fixed; right: 22px; bottom: 22px; z-index: 900; min-height: 58px; padding: 8px 18px 8px 8px; display: flex; align-items: center; gap: 10px; border: 0; border-radius: 999px; background: var(--coastal-blue); color: #fff; box-shadow: 0 12px 35px rgba(18,63,85,.28); cursor: pointer; font: 700 .84rem var(--coastal-sans); }
 .business-card-launcher > span { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--coastal-gold); color: var(--coastal-ink); font: 600 1.25rem var(--coastal-serif); }
-.business-card-dialog { width: min(1120px, calc(100% - 36px)); max-height: calc(100svh - 36px); padding: 0; border: 0; border-radius: 22px; background: #fff; color: var(--coastal-ink); box-shadow: 0 30px 90px rgba(8,38,49,.35); overflow: auto; }
-.business-card-dialog::backdrop { background: rgba(7,31,39,.72); backdrop-filter: blur(5px); }
-.business-card-close { position: absolute; top: 13px; right: 13px; z-index: 2; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--coastal-line); border-radius: 50%; background: rgba(255,255,255,.95); color: var(--coastal-ink); cursor: pointer; font: 400 1.6rem/1 var(--coastal-sans); }
-.business-card-dialog-grid { display: grid; grid-template-columns: 1.2fr .8fr; }
-.business-card-dialog-image { padding: 22px; display: flex; align-items: center; background: var(--coastal-sand); }
-.business-card-dialog-image img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 18px 42px rgba(18,63,85,.15); }
-.business-card-dialog-copy { padding: clamp(42px,5vw,70px); display: flex; flex-direction: column; justify-content: center; }
-.business-card-dialog-copy h2 { margin-bottom: 18px; font-size: clamp(2.35rem,4vw,3.7rem); }
+.business-card-dialog { width: min(790px, calc(100% - 36px)); max-height: calc(100svh - 48px); padding: 0; border: 0; border-radius: 20px; background: #fff; color: var(--coastal-ink); box-shadow: 0 26px 75px rgba(8,38,49,.3); overflow: auto; }
+.business-card-dialog::backdrop { background: rgba(7,31,39,.54); backdrop-filter: blur(3px); }
+.business-card-close { position: absolute; top: 11px; right: 11px; z-index: 2; width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--coastal-line); border-radius: 50%; background: #fff; color: var(--coastal-ink); box-shadow: 0 5px 16px rgba(18,63,85,.12); cursor: pointer; font: 400 1.45rem/1 var(--coastal-sans); }
+.business-card-dialog-grid { display: grid; grid-template-columns: 290px 1fr; }
+.business-card-dialog-image { padding: 18px; display: flex; align-items: center; background: var(--coastal-sand); }
+.business-card-dialog-image img { width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 14px 32px rgba(18,63,85,.14); }
+.business-card-dialog-copy { padding: 38px 34px 32px; display: flex; flex-direction: column; justify-content: center; }
+.business-card-dialog-copy h2 { margin: 0 0 10px; font-size: clamp(2rem,3.5vw,2.65rem); }
 .business-card-dialog-copy > p:not(.coastal-eyebrow):not(.business-card-note) { color: var(--coastal-muted); }
-.business-card-phone-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 25px; }
-.phone-save-button { min-height: 64px; padding: 9px 16px; display: flex; align-items: center; gap: 11px; border-radius: 10px; color: #fff; }
+.business-card-action-label { margin: 18px 0 8px; color: var(--coastal-ink) !important; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.business-card-phone-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.phone-save-button { min-height: 58px; padding: 8px 13px; display: flex; align-items: center; gap: 9px; border-radius: 10px; color: #fff; }
 .phone-save-button.apple { background: #151515; }
 .phone-save-button.android { background: #246b4c; }
 .phone-save-button > span:first-child { font-size: 1.15rem; }
 .phone-save-button > span:last-child { display: flex; flex-direction: column; }
 .phone-save-button small { color: rgba(255,255,255,.72); font-size: .64rem; line-height: 1.1; }
 .phone-save-button strong { font-size: .98rem; line-height: 1.2; }
-.business-card-download { margin-top: 18px; color: var(--coastal-green); font-size: .86rem; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
-.business-card-note { margin: 19px 0 0; color: var(--coastal-muted); font-size: .72rem; line-height: 1.55; }
+.business-card-wallets { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 10px; }
+.business-card-wallets div { padding: 9px 11px; display: flex; flex-direction: column; border: 1px solid var(--coastal-line); border-radius: 9px; background: #f8faf9; }
+.business-card-wallets strong { font-size: .76rem; }
+.business-card-wallets span { color: var(--coastal-muted); font-size: .63rem; }
+.business-card-download { margin-top: 13px; color: var(--coastal-green); font-size: .8rem; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.business-card-note { margin: 12px 0 0; color: var(--coastal-muted); font-size: .66rem; line-height: 1.45; }
 
 .coastal-home a:focus-visible,
 .coastal-home button:focus-visible { outline: 3px solid var(--coastal-gold); outline-offset: 4px; }
@@ -165,9 +170,6 @@
   .coastal-final .coastal-buttons { justify-content: flex-start; margin-top: 6px; }
   .coastal-hero-panel { grid-template-columns: minmax(0,1fr) 260px; gap: 30px; padding: 38px; }
   .coastal-hero-advisor img { height: 390px; }
-  .business-card-dialog-grid { grid-template-columns: 1fr; }
-  .business-card-dialog-image { padding: 16px; }
-  .business-card-dialog-image img { max-height: 45svh; object-fit: contain; }
 }
 
 @media (max-width: 700px) {
@@ -198,8 +200,14 @@
   .coastal-save,
   .coastal-help { padding: 75px 0; }
   .business-card-launcher { right: 14px; bottom: 14px; }
-  .business-card-dialog-copy { padding: 34px 22px; }
+  .business-card-dialog { width: min(430px, calc(100% - 24px)); max-height: calc(100svh - 24px); }
+  .business-card-dialog-grid { grid-template-columns: 1fr; }
+  .business-card-dialog-image { padding: 12px 60px; }
+  .business-card-dialog-image img { max-height: 155px; object-fit: contain; }
+  .business-card-dialog-copy { padding: 24px 20px 22px; }
+  .business-card-dialog-copy h2 { font-size: 2rem; }
   .business-card-phone-actions { grid-template-columns: 1fr; }
+  .business-card-wallets { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 480px) {
