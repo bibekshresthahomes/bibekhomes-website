@@ -32,7 +32,7 @@ button { font: inherit; }
 .card-preview-heading { margin-bottom: 14px; display: flex; align-items: flex-end; justify-content: space-between; gap: 15px; }
 .card-preview-heading .eyebrow { margin-bottom: 3px; }
 .card-preview-heading h2 { margin: 0; font: 600 1.65rem/1.08 var(--serif); letter-spacing: -.02em; }
-.card-preview-heading > a { padding-bottom: 2px; border-bottom: 1px solid currentColor; color: var(--green); font-size: .78rem; font-weight: 700; }
+.card-preview-heading > button { padding: 0 0 2px; border: 0; border-bottom: 1px solid currentColor; color: var(--green); background: transparent; cursor: pointer; font-size: .78rem; font-weight: 700; }
 .card-preview-hero img { width: 100%; height: auto; display: block; }
 .card-preview-hero > span { min-height: 34px; padding: 7px 12px 0; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: .64rem; font-weight: 700; letter-spacing: .04em; text-align: center; text-transform: uppercase; }
 

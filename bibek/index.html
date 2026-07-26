@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/digital-card.css?v=4">
+<link rel="stylesheet" href="../assets/css/digital-card.css?v=5">
 </head>
 <body>
 <main class="card-shell">
@@ -25,7 +25,7 @@
     <section class="card-preview-hero" aria-labelledby="complete-card-title">
       <div class="card-preview-heading">
         <div><p class="eyebrow">Digital business card</p><h2 id="complete-card-title">Keep the complete card.</h2></div>
-        <a href="../assets/downloads/bibek-shrestha-digital-business-card.png" download>Download</a>
+        <button type="button" data-save-image>Save to Photos</button>
       </div>
       <img src="../assets/downloads/bibek-shrestha-digital-business-card.png" width="1644" height="957" alt="Bibek Shrestha’s complete Keller Williams East Bay business card">
       <span>Digital business card · Call, save or share below</span>
@@ -75,38 +75,67 @@
 <script>
 (function () {
   const button = document.querySelector("[data-share-card]");
+  const saveButton = document.querySelector("[data-save-image]");
   const status = document.querySelector("[data-share-status]");
   const cardImageUrl = "../assets/downloads/bibek-shrestha-digital-business-card.png";
+
+  async function getCard() {
+    const response = await fetch(cardImageUrl);
+    if (!response.ok) throw new Error("Card image unavailable");
+    const blob = await response.blob();
+    const file = new File([blob], "Bibek-Shrestha-Business-Card.png", { type: "image/png" });
+    return { blob, file };
+  }
+
+  function downloadCard(cardBlob) {
+    const download = document.createElement("a");
+    download.href = URL.createObjectURL(cardBlob);
+    download.download = "Bibek-Shrestha-Business-Card.png";
+    document.body.appendChild(download);
+    download.click();
+    download.remove();
+    URL.revokeObjectURL(download.href);
+  }
 
   button.addEventListener("click", async function () {
     status.textContent = "";
     try {
-      const response = await fetch(cardImageUrl);
-      if (!response.ok) throw new Error("Card image unavailable");
-      const cardBlob = await response.blob();
-      const cardFile = new File([cardBlob], "Bibek-Shrestha-Business-Card.png", { type: "image/png" });
-
-      if (navigator.share && navigator.canShare && navigator.canShare({ files: [cardFile] })) {
+      const card = await getCard();
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [card.file] })) {
         await navigator.share({
           title: "Bibek Shrestha’s Business Card",
           text: "Bibek Shrestha · East Bay Real Estate Advisor\nCall: +1 (806) 787-3675\nEmail: contact@bibekhomes.com\nWebsite: https://bibekhomes.com/",
-          files: [cardFile]
+          files: [card.file]
         });
         status.textContent = "Business card shared.";
         return;
       }
 
-      const download = document.createElement("a");
-      download.href = URL.createObjectURL(cardBlob);
-      download.download = "Bibek-Shrestha-Business-Card.png";
-      document.body.appendChild(download);
-      download.click();
-      download.remove();
-      URL.revokeObjectURL(download.href);
+      downloadCard(card.blob);
       status.textContent = "The business card was downloaded. Attach it to a text, AirDrop, WhatsApp or email.";
     } catch (error) {
       if (error && error.name === "AbortError") return;
       status.innerHTML = 'Could not open sharing. <a href="' + cardImageUrl + '" download>Download the business card instead.</a>';
+    }
+  });
+
+  saveButton.addEventListener("click", async function () {
+    status.textContent = "";
+    try {
+      const card = await getCard();
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [card.file] })) {
+        status.textContent = "Choose “Save Image” in the menu to add the card to Photos.";
+        await navigator.share({
+          title: "Save Bibek Shrestha’s Business Card",
+          files: [card.file]
+        });
+        return;
+      }
+      downloadCard(card.blob);
+      status.textContent = "Saved to Downloads. Open the image and choose Save to Photos.";
+    } catch (error) {
+      if (error && error.name === "AbortError") return;
+      status.innerHTML = 'Could not open the photo menu. <a href="' + cardImageUrl + '" download>Download the card instead.</a>';
     }
   });
 }());
