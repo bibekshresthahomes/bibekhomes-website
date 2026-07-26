@@ -67,10 +67,45 @@
     }
   }
 
+  function businessCardPopup() {
+    const dialog = document.querySelector("[data-business-card-dialog]");
+    const openers = document.querySelectorAll("[data-business-card-open]");
+    const closer = document.querySelector("[data-business-card-close]");
+    if (!dialog || typeof dialog.showModal !== "function") return;
+
+    const open = () => {
+      if (!dialog.open) dialog.showModal();
+    };
+    const close = () => {
+      if (dialog.open) dialog.close();
+    };
+
+    openers.forEach(button => button.addEventListener("click", open));
+    if (closer) closer.addEventListener("click", close);
+    dialog.addEventListener("click", event => {
+      if (event.target === dialog) close();
+    });
+
+    let hasShown = false;
+    try {
+      hasShown = sessionStorage.getItem("bibek-business-card-shown") === "1";
+    } catch (_) {}
+
+    if (!hasShown) {
+      window.setTimeout(() => {
+        open();
+        try {
+          sessionStorage.setItem("bibek-business-card-shown", "1");
+        } catch (_) {}
+      }, 6500);
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     applyAgentDetails();
     setYear();
     mobileNavigation();
     addBrokerageBranding();
+    businessCardPopup();
   });
 })();
