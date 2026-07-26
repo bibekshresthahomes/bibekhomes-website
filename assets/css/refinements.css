@@ -87,9 +87,9 @@
 .kw-immersive-page .tool-intro p { margin-bottom: 0; }
 .kw-immersive-shell { padding: 0; background: #fff; }
 .kw-immersive-shell > .container { width: 100%; max-width: none; }
-.kw-immersive-shell .frame-card { width: 100%; max-width: none; margin: 0; border: 0; border-radius: 0; box-shadow: none; }
+.kw-immersive-shell .frame-card { --kw-header-crop: 178px; width: 100%; max-width: none; margin: 0; border: 0; border-radius: 0; box-shadow: none; overflow: hidden; }
 .kw-immersive-shell .frame-toolbar { position: sticky; top: 80px; z-index: 20; padding-left: max(24px, calc((100vw - 1240px) / 2)); padding-right: max(24px, calc((100vw - 1240px) / 2)); background: rgba(251,250,247,.96); backdrop-filter: blur(14px); }
-.kw-immersive-shell .kw-frame { display: block; width: 100%; height: calc(100vh - 138px); min-height: 780px; border: 0; }
+.kw-immersive-shell .kw-frame { position: relative; z-index: 1; display: block; width: 100%; height: calc(100vh - 138px + var(--kw-header-crop)); min-height: calc(780px + var(--kw-header-crop)); margin-top: calc(-1 * var(--kw-header-crop)); margin-bottom: calc(-1 * var(--kw-header-crop)); border: 0; }
 .kw-immersive-shell .privacy-note { max-width: none; margin: 0; padding: 12px 4%; background: var(--cream); text-align: center; }
 
 @media (max-width: 980px) {
@@ -100,7 +100,8 @@
   .kw-launch { grid-template-columns: 1fr; }
   .kw-advisor-card { min-height: 360px; }
   .kw-immersive-shell .frame-toolbar { top: 72px; }
-  .kw-immersive-shell .kw-frame { height: calc(100svh - 130px); min-height: 680px; }
+  .kw-immersive-shell .frame-card { --kw-header-crop: 158px; }
+  .kw-immersive-shell .kw-frame { height: calc(100svh - 130px + var(--kw-header-crop)); min-height: calc(680px + var(--kw-header-crop)); }
 }
 
 @media (max-width: 620px) {
@@ -130,5 +131,6 @@
   .kw-advisor-card { min-height: 340px; padding: 35px 25px; }
   .kw-immersive-page .tool-intro { padding: 35px 0 24px; }
   .kw-immersive-shell .frame-toolbar { position: static; }
-  .kw-immersive-shell .kw-frame { height: calc(100svh - 120px); min-height: 620px; }
+  .kw-immersive-shell .frame-card { --kw-header-crop: 138px; }
+  .kw-immersive-shell .kw-frame { height: calc(100svh - 120px + var(--kw-header-crop)); min-height: calc(620px + var(--kw-header-crop)); }
 }
