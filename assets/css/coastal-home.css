@@ -40,16 +40,16 @@
 
 .coastal-eyebrow { margin: 0 0 15px; color: var(--coastal-green); font-size: .76rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .coastal-hero { padding: 30px 0 55px; }
-.coastal-hero-media { position: relative; min-height: 610px; overflow: hidden; border-radius: 24px; background: #aebfc2; box-shadow: 0 24px 58px rgba(18,63,85,.14); }
+.coastal-hero-media { position: relative; min-height: 690px; overflow: hidden; border-radius: 24px; background: #aebfc2; box-shadow: 0 24px 58px rgba(18,63,85,.14); }
 .coastal-hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
 .coastal-hero-media:after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17,52,62,.18), rgba(17,52,62,.02)); pointer-events: none; }
-.coastal-hero-panel { position: absolute; z-index: 2; inset: 45px auto 45px 45px; width: min(595px, calc(100% - 90px)); padding: clamp(34px, 4vw, 52px); display: flex; flex-direction: column; justify-content: center; border-radius: 18px; background: rgba(255,255,255,.96); box-shadow: 0 18px 50px rgba(18,63,85,.16); }
-.coastal-hero-advisor { width: fit-content; margin-bottom: 25px; display: grid; grid-template-columns: 76px 1fr; gap: 15px; align-items: center; }
-.coastal-hero-advisor img { width: 76px; height: 76px; display: block; object-fit: cover; object-position: center 17%; border: 3px solid #fff; border-radius: 50%; box-shadow: 0 7px 22px rgba(18,63,85,.18); }
-.coastal-hero-advisor span { display: flex; flex-direction: column; }
-.coastal-hero-advisor small { color: var(--coastal-green); font-size: .67rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-.coastal-hero-advisor strong { margin-top: 2px; color: var(--coastal-ink); font: 600 1.25rem var(--coastal-serif); }
-.coastal-hero-panel h1 { margin: 0 0 20px; }
+.coastal-hero-panel { position: absolute; z-index: 2; inset: 32px auto 32px 32px; width: min(720px, calc(100% - 64px)); padding: clamp(30px, 3.2vw, 44px); display: flex; flex-direction: column; justify-content: center; border-radius: 18px; background: rgba(255,255,255,.96); box-shadow: 0 18px 50px rgba(18,63,85,.16); }
+.coastal-hero-intro { display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: center; margin-bottom: 22px; }
+.coastal-hero-advisor { display: block; }
+.coastal-hero-advisor img { width: 180px; height: 225px; display: block; object-fit: cover; object-position: center 17%; border: 5px solid #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(18,63,85,.2); }
+.coastal-hero-intro .coastal-eyebrow { margin-bottom: 10px; }
+.coastal-hero-panel h1 { margin: 0; font-size: clamp(2.8rem, 4.3vw, 4.5rem); }
+.coastal-hero-name { display: inline-block; margin-top: 13px; color: var(--coastal-green); font-size: .86rem; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
 .coastal-hero-panel > p:not(.coastal-eyebrow) { margin: 0; color: var(--coastal-muted); font-size: 1.08rem; line-height: 1.7; }
 .coastal-buttons { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 28px; }
 .coastal-button { min-height: 56px; padding: 0 25px; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--coastal-blue); border-radius: 8px; font-size: .93rem; font-weight: 700; }
@@ -147,8 +147,8 @@
   .coastal-hero { padding-top: 16px; }
   .coastal-hero-media { min-height: 690px; border-radius: 14px; }
   .coastal-hero-panel { inset: auto 12px 12px; width: auto; padding: 28px 22px; }
-  .coastal-hero-advisor { grid-template-columns: 62px 1fr; margin-bottom: 20px; }
-  .coastal-hero-advisor img { width: 62px; height: 62px; }
+  .coastal-hero-intro { grid-template-columns: 115px 1fr; gap: 18px; }
+  .coastal-hero-advisor img { width: 115px; height: 150px; border-radius: 10px; }
   .coastal-hero-panel h1 { font-size: clamp(2.8rem, 13vw, 4rem); }
   .coastal-buttons { flex-direction: column; }
   .coastal-button { width: 100%; }
@@ -169,6 +169,9 @@
 }
 
 @media (max-width: 480px) {
+  .coastal-hero-intro { grid-template-columns: 95px 1fr; gap: 14px; }
+  .coastal-hero-advisor img { width: 95px; height: 132px; }
+  .coastal-hero-panel h1 { font-size: 2.55rem; }
   .coastal-profile { grid-template-columns: 1fr; }
   .coastal-profile img { width: 150px; height: 205px; }
 }
