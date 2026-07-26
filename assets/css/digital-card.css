@@ -28,9 +28,13 @@ button { font: inherit; }
 .identity-brand > img { width: 118px; height: auto; }
 .identity-monogram { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid #9f7849; color: #8d6b43; font: 600 1.15rem var(--serif); }
 
-.card-preview-hero { margin: 0 16px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--sand); box-shadow: 0 14px 35px rgba(18,63,85,.13); }
+.card-preview-hero { margin: 0 16px; padding: 18px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: #f8faf9; box-shadow: 0 14px 35px rgba(18,63,85,.13); }
+.card-preview-heading { margin-bottom: 14px; display: flex; align-items: flex-end; justify-content: space-between; gap: 15px; }
+.card-preview-heading .eyebrow { margin-bottom: 3px; }
+.card-preview-heading h2 { margin: 0; font: 600 1.65rem/1.08 var(--serif); letter-spacing: -.02em; }
+.card-preview-heading > a { padding-bottom: 2px; border-bottom: 1px solid currentColor; color: var(--green); font-size: .78rem; font-weight: 700; }
 .card-preview-hero img { width: 100%; height: auto; display: block; }
-.card-preview-hero span { min-height: 34px; padding: 7px 12px; display: flex; align-items: center; justify-content: center; color: var(--muted); background: #f8faf9; font-size: .64rem; font-weight: 700; letter-spacing: .04em; text-align: center; text-transform: uppercase; }
+.card-preview-hero > span { min-height: 34px; padding: 7px 12px 0; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: .64rem; font-weight: 700; letter-spacing: .04em; text-align: center; text-transform: uppercase; }
 
 .identity-copy { padding: 26px 25px 20px; text-align: center; }
 .eyebrow { margin: 0 0 6px; color: var(--green); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
@@ -75,7 +79,7 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 @media (max-width: 540px) {
   .card-shell { padding: 0; display: block; }
   .identity-card { width: 100%; min-height: 100svh; border: 0; border-radius: 0; box-shadow: none; }
-  .card-preview-hero { margin-inline: 12px; }
+  .card-preview-hero { margin-inline: 12px; padding: 14px; }
 }
 
 @media (max-width: 370px) {
