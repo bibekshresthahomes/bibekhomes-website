@@ -44,9 +44,9 @@
 .coastal-hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
 .coastal-hero-media:after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17,52,62,.18), rgba(17,52,62,.02)); pointer-events: none; }
 .coastal-hero-panel { position: absolute; z-index: 2; inset: 32px auto 32px 32px; width: min(720px, calc(100% - 64px)); padding: clamp(30px, 3.2vw, 44px); display: flex; flex-direction: column; justify-content: center; border-radius: 18px; background: rgba(255,255,255,.96); box-shadow: 0 18px 50px rgba(18,63,85,.16); }
-.coastal-hero-intro { display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: center; margin-bottom: 22px; }
+.coastal-hero-intro { display: grid; grid-template-columns: 235px 1fr; gap: 30px; align-items: center; margin-bottom: 22px; }
 .coastal-hero-advisor { display: block; }
-.coastal-hero-advisor img { width: 180px; height: 225px; display: block; object-fit: cover; object-position: center 17%; border: 5px solid #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(18,63,85,.2); }
+.coastal-hero-advisor img { width: 235px; height: 300px; display: block; object-fit: cover; object-position: left center; border: 5px solid #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(18,63,85,.2); }
 .coastal-hero-intro .coastal-eyebrow { margin-bottom: 10px; }
 .coastal-hero-panel h1 { margin: 0; font-size: clamp(2.8rem, 4.3vw, 4.5rem); }
 .coastal-hero-name { display: inline-block; margin-top: 13px; color: var(--coastal-green); font-size: .86rem; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
@@ -147,8 +147,8 @@
   .coastal-hero { padding-top: 16px; }
   .coastal-hero-media { min-height: 690px; border-radius: 14px; }
   .coastal-hero-panel { inset: auto 12px 12px; width: auto; padding: 28px 22px; }
-  .coastal-hero-intro { grid-template-columns: 115px 1fr; gap: 18px; }
-  .coastal-hero-advisor img { width: 115px; height: 150px; border-radius: 10px; }
+  .coastal-hero-intro { grid-template-columns: 145px 1fr; gap: 18px; }
+  .coastal-hero-advisor img { width: 145px; height: 190px; border-radius: 10px; }
   .coastal-hero-panel h1 { font-size: clamp(2.8rem, 13vw, 4rem); }
   .coastal-buttons { flex-direction: column; }
   .coastal-button { width: 100%; }
@@ -169,8 +169,8 @@
 }
 
 @media (max-width: 480px) {
-  .coastal-hero-intro { grid-template-columns: 95px 1fr; gap: 14px; }
-  .coastal-hero-advisor img { width: 95px; height: 132px; }
+  .coastal-hero-intro { grid-template-columns: 125px 1fr; gap: 14px; }
+  .coastal-hero-advisor img { width: 125px; height: 170px; }
   .coastal-hero-panel h1 { font-size: 2.55rem; }
   .coastal-profile { grid-template-columns: 1fr; }
   .coastal-profile img { width: 150px; height: 205px; }
