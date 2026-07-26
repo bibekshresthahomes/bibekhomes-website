@@ -24,6 +24,19 @@
     document.querySelectorAll("[data-current-year]").forEach(el => el.textContent = new Date().getFullYear());
   }
 
+  function addSharedTopbar() {
+    const header = document.querySelector(".site-header");
+    if (!header || document.querySelector(".site-topbar")) return;
+    const topbar = document.createElement("div");
+    topbar.className = "site-topbar";
+    topbar.innerHTML = `
+      <div class="container">
+        <span>Serving Walnut Creek, Antioch, Concord, Brentwood &amp; the greater East Bay</span>
+        <a href="tel:${config.agent.phoneLink}">Questions? Call <strong>${config.agent.phoneDisplay}</strong></a>
+      </div>`;
+    header.insertAdjacentElement("beforebegin", topbar);
+  }
+
   function mobileNavigation() {
     const button = document.querySelector("[data-menu-button]");
     const nav = document.querySelector("[data-main-nav]");
@@ -121,6 +134,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    addSharedTopbar();
     applyAgentDetails();
     setYear();
     normalizeHeaderNavigation();

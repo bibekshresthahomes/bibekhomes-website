@@ -70,7 +70,7 @@ function e(string $value): string { return htmlspecialchars($value, ENT_QUOTES, 
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/styles.css?v=premium-2">
-<link rel="stylesheet" href="../assets/css/refinements.css?v=refine-7">
+<link rel="stylesheet" href="../assets/css/refinements.css?v=refine-8">
 <link rel="stylesheet" href="../assets/css/contact.css?v=contact-2">
 </head>
 <body>
@@ -115,5 +115,5 @@ function e(string $value): string { return htmlspecialchars($value, ENT_QUOTES, 
 </main>
 
 <footer class="site-footer premium-footer"><div class="container footer-grid"><div><a class="brand" href="../index.html"><div class="monogram">BS</div><div class="brand-copy"><strong data-agent-name></strong><span>East Bay Real Estate</span></div></a><p>Personal representation backed by Keller Williams Realty East Bay.</p></div><div><h4>Explore</h4><a href="../about/index.html">About Bibek</a><a href="../index.html#areas">Areas</a><a href="index.php">Contact</a></div><div><h4>Real Estate</h4><a href="../search-homes/index.html">Buy a Home</a><a href="../home-value/index.html">Sell a Home</a><a href="../mortgage-calculator/index.html">Mortgage Calculator</a></div><div><h4>Connect</h4><a data-agent-phone-link href="#"><span data-agent-phone></span></a><a data-agent-email-link href="#"><span data-agent-email></span></a><p data-agent-license></p></div></div><div class="container legal"><span>© <span data-current-year></span> Bibek Shrestha</span><span>Keller Williams Realty East Bay · Each office is independently owned and operated.</span></div></footer>
-<script src="../assets/js/config.js"></script><script src="../assets/js/site.js?v=nav-brand-2"></script>
+<script src="../assets/js/config.js"></script><script src="../assets/js/site.js?v=nav-brand-3"></script>
 </body></html>

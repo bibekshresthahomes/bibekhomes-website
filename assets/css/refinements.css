@@ -30,6 +30,11 @@
 
 .hero-scroll { right: 25px; bottom: 210px; }
 
+/* Shared service bar */
+.site-topbar { min-height: 42px; display: flex; align-items: center; background: #123f55; color: #fff; font-size: 13px; }
+.site-topbar .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.site-topbar a { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+
 /* Keller Williams co-branding */
 .header-brand-group {
   min-width: 0;
@@ -106,6 +111,8 @@
 }
 
 @media (max-width: 620px) {
+  .site-topbar span { display: none; }
+  .site-topbar .container { justify-content: center; }
   .header-brand-group { gap: 9px; }
   .header-brand-group .brand { gap: 8px; }
   .header-brand-group .monogram { width: 34px; height: 34px; font-size: 15px; }
