@@ -1,0 +1,39 @@
+.contact-hero { padding: 110px 0 85px; background: var(--forest); color: #fff; }
+.contact-hero-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 9vw; align-items: end; }
+.contact-hero h1 { margin: 0; font-size: clamp(56px, 7.5vw, 104px); line-height: .96; letter-spacing: -.045em; }
+.contact-hero h1 em { color: #dcc4a3; font-weight: 500; }
+.contact-hero-grid > p { color: rgba(255,255,255,.68); line-height: 1.9; }
+.contact-section { padding: 110px 0 130px; }
+.contact-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 9vw; align-items: start; }
+.contact-details { position: sticky; top: 115px; }
+.contact-portrait { width: 150px; height: 150px; margin-bottom: 38px; border-radius: 50%; background: url("../images/bibek-shrestha.jpg?v=portrait-2") center 17%/cover no-repeat; }
+.contact-details h2 { margin-bottom: 8px; font-size: 43px; }
+.contact-role { color: var(--muted); font-size: 12px; line-height: 1.75; }
+.contact-methods { margin: 34px 0; border-top: 1px solid var(--line); }
+.contact-methods a { display: block; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.contact-methods small { display: block; margin-bottom: 7px; color: #806a50; font-size: 8px; letter-spacing: .16em; text-transform: uppercase; }
+.contact-methods strong { font: 500 17px var(--serif); }
+.contact-details dl { margin: 0; }
+.contact-details dl div { display: grid; grid-template-columns: 85px 1fr; padding: 11px 0; font-size: 10px; }
+.contact-details dt { color: var(--muted); }
+.contact-details dd { margin: 0; line-height: 1.6; }
+.schedule-link { display: inline-block; margin-top: 28px; padding-bottom: 6px; border-bottom: 1px solid var(--ink); font-size: 9px; font-weight: 700; }
+.contact-form-wrap { padding: clamp(35px, 6vw, 75px); background: var(--cream); }
+.contact-form-wrap h2 { margin-bottom: 40px; font-size: clamp(43px, 5vw, 67px); }
+.contact-form { display: grid; gap: 24px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.contact-form label { display: grid; gap: 9px; color: #3e4541; font-size: 10px; font-weight: 700; letter-spacing: .04em; }
+.contact-form input,.contact-form select,.contact-form textarea { width: 100%; border: 0; border-bottom: 1px solid #9ca19e; border-radius: 0; padding: 14px 2px; background: transparent; color: var(--ink); font: 400 14px var(--sans); outline: none; }
+.contact-form textarea { border: 1px solid #b9bcb9; padding: 16px; resize: vertical; }
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus { border-color: var(--forest); box-shadow: 0 2px 0 var(--forest); }
+.consent { grid-template-columns: 18px 1fr !important; align-items: start; gap: 12px !important; color: var(--muted) !important; font-weight: 400 !important; line-height: 1.6; }
+.consent input { width: 16px; height: 16px; margin: 2px 0 0; }
+.form-submit { width: fit-content; min-width: 180px; }
+.form-privacy { margin: -10px 0 0; color: var(--muted); font-size: 9px; }
+.form-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.form-status { margin-bottom: 28px; padding: 18px 20px; border-left: 3px solid; font-size: 12px; line-height: 1.6; }
+.form-status p,.form-status ul { margin: 6px 0 0; }
+.form-status.success { border-color: #42745f; background: #e6efe9; }
+.form-status.error { border-color: #9b493f; background: #f5e7e3; }
+@media(max-width:980px){.contact-hero-grid,.contact-grid{grid-template-columns:1fr}.contact-hero-grid{gap:35px}.contact-grid{gap:70px}.contact-details{position:static}.contact-portrait{width:120px;height:120px}.contact-form-wrap{padding:55px 40px}}
+@media(max-width:620px){.contact-hero{padding:75px 0 60px}.contact-hero h1{font-size:51px}.contact-section{padding:75px 0 90px}.contact-form-wrap{padding:40px 22px}.form-row{grid-template-columns:1fr}.form-submit{width:100%}}
