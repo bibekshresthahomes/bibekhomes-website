@@ -34,6 +34,12 @@
     root.classList.add("kw-immersive-page");
     const shell = document.querySelector(".tool-shell");
     if (shell) shell.classList.add("kw-immersive-shell");
+    if (!frame.parentElement.classList.contains("kw-frame-viewport")) {
+      const viewport = document.createElement("div");
+      viewport.className = "kw-frame-viewport";
+      frame.insertAdjacentElement("beforebegin", viewport);
+      viewport.appendChild(frame);
+    }
     const helper = document.querySelector("[data-frame-helper]");
     if (helper) helper.hidden = false;
   });
