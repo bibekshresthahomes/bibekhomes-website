@@ -2,6 +2,9 @@
 (function () {
   const config = window.BIBEK_SITE_CONFIG;
   const siteScriptUrl = document.currentScript && document.currentScript.src;
+  const siteRootUrl = siteScriptUrl
+    ? new URL("../../", siteScriptUrl)
+    : new URL("./", window.location.href);
   const kwLogoUrl = siteScriptUrl
     ? new URL("../images/kw-wc-east-bay-logo.png", siteScriptUrl).href
     : "assets/images/kw-wc-east-bay-logo.png";
@@ -31,12 +34,51 @@
     });
   }
 
+  function normalizeHeaderNavigation() {
+    const navbar = document.querySelector(".navbar");
+    const brand = navbar && navbar.querySelector(".brand");
+    const nav = navbar && navbar.querySelector("[data-main-nav]");
+    if (!navbar || !brand || !nav) return;
+
+    brand.href = new URL("index.html", siteRootUrl).href;
+    brand.setAttribute("aria-label", "Bibek Shrestha home");
+
+    const links = [
+      ["Home", "index.html"],
+      ["Buy", "search-homes/index.html"],
+      ["Sell", "home-value/index.html"],
+      ["About", "about/index.html"],
+      ["Contact", "contact/index.php"]
+    ];
+    const currentPath = window.location.pathname.replace(/\/index\.(?:html|php)$/, "/");
+    nav.replaceChildren(...links.map(([label, path]) => {
+      const link = document.createElement("a");
+      const url = new URL(path, siteRootUrl);
+      link.href = url.href;
+      link.textContent = label;
+      const linkPath = url.pathname.replace(/\/index\.(?:html|php)$/, "/");
+      if (currentPath === linkPath) link.setAttribute("aria-current", "page");
+      return link;
+    }));
+    nav.setAttribute("aria-label", "Main navigation");
+
+    const contactAction = navbar.querySelector(".nav-actions a:last-child");
+    if (contactAction) contactAction.href = new URL("contact/index.php", siteRootUrl).href;
+  }
+
   function addBrokerageBranding() {
     const navbar = document.querySelector(".navbar");
     const brand = navbar && navbar.querySelector(".brand");
     const nav = navbar && navbar.querySelector("[data-main-nav]");
 
     if (navbar && brand && !navbar.querySelector(".header-kw-mark")) {
+      let brandGroup = navbar.querySelector(".header-brand-group");
+      if (!brandGroup) {
+        brandGroup = document.createElement("div");
+        brandGroup.className = "header-brand-group";
+        brand.insertAdjacentElement("beforebegin", brandGroup);
+        brandGroup.appendChild(brand);
+      }
       const headerMark = document.createElement("a");
       headerMark.className = "header-kw-mark";
       headerMark.href = config.kw.home;
@@ -44,17 +86,7 @@
       headerMark.rel = "noopener noreferrer";
       headerMark.setAttribute("aria-label", "Keller Williams Walnut Creek East Bay");
       headerMark.innerHTML = `<img src="${kwLogoUrl}" alt="Keller Williams Walnut Creek East Bay">`;
-      brand.insertAdjacentElement("afterend", headerMark);
-    }
-
-    if (nav && !nav.querySelector(".mobile-kw-mark")) {
-      const mobileMark = document.createElement("a");
-      mobileMark.className = "mobile-kw-mark";
-      mobileMark.href = config.kw.home;
-      mobileMark.target = "_blank";
-      mobileMark.rel = "noopener noreferrer";
-      mobileMark.innerHTML = `<span>Brokered by</span><img src="${kwLogoUrl}" alt="Keller Williams Walnut Creek East Bay">`;
-      nav.appendChild(mobileMark);
+      brandGroup.appendChild(headerMark);
     }
 
     const footer = document.querySelector(".site-footer");
@@ -91,6 +123,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     applyAgentDetails();
     setYear();
+    normalizeHeaderNavigation();
     mobileNavigation();
     addBrokerageBranding();
     businessCardPopup();

@@ -31,16 +31,22 @@
 .hero-scroll { right: 25px; bottom: 210px; }
 
 /* Keller Williams co-branding */
+.header-brand-group {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 0 1 auto;
+}
+.header-brand-group .brand { flex: 0 1 auto; }
 .header-kw-mark {
   display: flex;
   align-items: center;
-  align-self: stretch;
-  padding-left: 18px;
-  margin-left: -10px;
+  flex: 0 0 auto;
+  padding-left: 14px;
   border-left: 1px solid var(--line);
 }
 .header-kw-mark img { display: block; width: 112px; height: auto; }
-.mobile-kw-mark { display: none; }
 .footer-kw-mark {
   display: flex;
   align-items: center;
@@ -87,7 +93,8 @@
 .kw-immersive-shell .privacy-note { max-width: none; margin: 0; padding: 12px 4%; background: var(--cream); text-align: center; }
 
 @media (max-width: 980px) {
-  .header-kw-mark { margin-left: auto; }
+  .navbar { gap: 16px; }
+  .header-brand-group { margin-right: auto; }
   .hero-agent-card { right: 20px; bottom: 25px; }
   .hero-scroll { display: none; }
   .kw-launch { grid-template-columns: 1fr; }
@@ -97,10 +104,13 @@
 }
 
 @media (max-width: 620px) {
-  .header-kw-mark { display: none; }
-  .mobile-kw-mark { display: flex !important; width: 100%; align-items: center; gap: 13px; margin-top: 12px; padding: 18px 14px !important; border-top: 1px solid var(--line); }
-  .mobile-kw-mark span { color: var(--muted); font-size: 8px; letter-spacing: .14em; text-transform: uppercase; }
-  .mobile-kw-mark img { width: 110px; height: auto; }
+  .header-brand-group { gap: 9px; }
+  .header-brand-group .brand { gap: 8px; }
+  .header-brand-group .monogram { width: 34px; height: 34px; font-size: 15px; }
+  .header-brand-group .brand-copy strong { max-width: 106px; font-size: 10px; letter-spacing: .1em; line-height: 1.2; }
+  .header-brand-group .brand-copy span { display: none; }
+  .header-kw-mark { display: flex; padding-left: 9px; }
+  .header-kw-mark img { width: 82px; }
   .footer-kw-mark { align-items: flex-start; flex-direction: column; }
   .hero-agent-card {
     right: 16px;

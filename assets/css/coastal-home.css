@@ -151,7 +151,8 @@
 .coastal-home button:focus-visible { outline: 3px solid var(--coastal-gold); outline-offset: 4px; }
 
 @media (max-width: 1150px) {
-  .coastal-header .header-kw-mark { display: none; }
+  .coastal-header .navbar { gap: 18px; }
+  .coastal-header .main-nav { gap: 20px; }
   .coastal-place-grid,
   .coastal-tool-grid { grid-template-columns: 1fr 1fr; }
 }
