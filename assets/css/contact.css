@@ -6,7 +6,7 @@
 .contact-section { padding: 110px 0 130px; }
 .contact-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 9vw; align-items: start; }
 .contact-details { position: sticky; top: 115px; }
-.contact-portrait { width: 150px; height: 150px; margin-bottom: 38px; border-radius: 50%; background: url("../images/bibek-shrestha.jpg?v=portrait-2") center 17%/cover no-repeat; }
+.contact-portrait { width: 150px; height: 150px; margin-bottom: 38px; border-radius: 50%; background: url("../images/bibek-business-card-portrait.png?v=card-portrait-1") center 17%/cover no-repeat; }
 .contact-details h2 { margin-bottom: 8px; font-size: 43px; }
 .contact-role { color: var(--muted); font-size: 12px; line-height: 1.75; }
 .contact-methods { margin: 34px 0; border-top: 1px solid var(--line); }
