@@ -51,7 +51,7 @@
       </a>
       <button class="share-card" type="button" data-share-card>
         <span aria-hidden="true">↗</span>
-        <span><strong>Share the Business Card</strong><small>Send the actual card by AirDrop, text, WhatsApp or email</small></span>
+        <span><strong>Share the Business Card</strong><small>Send the card plus tappable phone, email and website details</small></span>
       </button>
       <p class="share-status" data-share-status role="status" aria-live="polite"></p>
     </div>
@@ -89,7 +89,7 @@
       if (navigator.share && navigator.canShare && navigator.canShare({ files: [cardFile] })) {
         await navigator.share({
           title: "Bibek Shrestha’s Business Card",
-          text: "Bibek Shrestha · East Bay Real Estate Advisor · (806) 787-3675",
+          text: "Bibek Shrestha · East Bay Real Estate Advisor\nCall: +1 (806) 787-3675\nEmail: contact@bibekhomes.com\nWebsite: https://bibekhomes.com/",
           files: [cardFile]
         });
         status.textContent = "Business card shared.";
