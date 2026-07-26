@@ -46,7 +46,7 @@
       </a>
       <button class="share-card" type="button" data-share-card>
         <span aria-hidden="true">↗</span>
-        <span><strong>Share This Card</strong><small>Send by text, AirDrop, email or another app</small></span>
+        <span><strong>Share the Business Card</strong><small>Send the actual card by AirDrop, text, WhatsApp or email</small></span>
       </button>
       <p class="share-status" data-share-status role="status" aria-live="polite"></p>
     </div>
@@ -81,25 +81,37 @@
 (function () {
   const button = document.querySelector("[data-share-card]");
   const status = document.querySelector("[data-share-status]");
-  const shareData = {
-    title: "Bibek Shrestha | East Bay Real Estate",
-    text: "Connect with Bibek Shrestha, East Bay real estate advisor.",
-    url: "https://bibekhomes.com/bibek/"
-  };
+  const cardImageUrl = "../assets/downloads/bibek-shrestha-digital-business-card.png";
 
   button.addEventListener("click", async function () {
     status.textContent = "";
     try {
-      if (navigator.share) {
-        await navigator.share(shareData);
-        status.textContent = "Card shared.";
+      const response = await fetch(cardImageUrl);
+      if (!response.ok) throw new Error("Card image unavailable");
+      const cardBlob = await response.blob();
+      const cardFile = new File([cardBlob], "Bibek-Shrestha-Business-Card.png", { type: "image/png" });
+
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [cardFile] })) {
+        await navigator.share({
+          title: "Bibek Shrestha’s Business Card",
+          text: "Bibek Shrestha · East Bay Real Estate Advisor · (806) 787-3675",
+          files: [cardFile]
+        });
+        status.textContent = "Business card shared.";
         return;
       }
-      await navigator.clipboard.writeText(shareData.url);
-      status.textContent = "Card link copied. Paste it into a text or email.";
+
+      const download = document.createElement("a");
+      download.href = URL.createObjectURL(cardBlob);
+      download.download = "Bibek-Shrestha-Business-Card.png";
+      document.body.appendChild(download);
+      download.click();
+      download.remove();
+      URL.revokeObjectURL(download.href);
+      status.textContent = "The business card was downloaded. Attach it to a text, AirDrop, WhatsApp or email.";
     } catch (error) {
       if (error && error.name === "AbortError") return;
-      status.innerHTML = 'Copy this link: <a href="' + shareData.url + '">' + shareData.url + "</a>";
+      status.innerHTML = 'Could not open sharing. <a href="' + cardImageUrl + '" download>Download the business card instead.</a>';
     }
   });
 }());
